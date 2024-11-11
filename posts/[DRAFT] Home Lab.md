@@ -7,7 +7,8 @@ Panic garage sale
 ## Initial Setup & Upgrades
 
 - Noctua fans
-- Ubiquiti setup
+- Ubiquiti networking setup
+- Ubiquiti rack
 
 ### Fun Discoveries
 
