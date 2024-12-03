@@ -37,11 +37,18 @@ bundle install
 # spamcheck.rb
 require "transformers"
 
-embed = Transformers.pipeline(
-  "text-classification",
-  model: "mrm8488/bert-tiny-finetuned-enron-spam-detection",
-  device: "cpu"
-)
+device =
+  case
+  when Torch::CUDA.available?
+    "cuda"
+  when Torch::Backends::MPS.available?
+    "mps"
+  else
+    "cpu"
+  end
+
+model_path = "mrm8488/bert-tiny-finetuned-enron-spam-detection"
+embed = Transformers.pipeline("text-classification", model: model_path, device: device)
 
 examples = [
   "Get a free iPhone now!",
@@ -57,12 +64,10 @@ examples.each do |example|
 
   case result[:label]
   when "LABEL_1"
-    puts "Spam (Confidence: #{result[:score]})"
+    puts "Spam (Confidence: #{result[:score]})\n\n"
   when "LABEL_0"
-    puts "Ham (Confidence: #{result[:score]})"
+    puts "Ham (Confidence: #{result[:score]})\n\n"
   end
-
-  puts ""
 end
 ```
 
