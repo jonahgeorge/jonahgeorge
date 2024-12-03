@@ -49,7 +49,7 @@ device =
     "cpu"
   end
 
-# DriftyRuby uses `mshenoda/roberta-spam`; however, `transformers-rb` does not yet support RoBERTa models.
+# DriftingRuby uses `mshenoda/roberta-spam`; however, `transformers-rb` does not yet support RoBERTa models.
 # I found the following model which utilizes just BERT and is Apache 2.0 licensed.
 model_path = "mrm8488/bert-tiny-finetuned-enron-spam-detection"
 
@@ -65,16 +65,13 @@ examples = [
 
 examples.each do |example|
   puts example
-  result = embed.(example)
 
-  case result[:label]
-  when "LABEL_1"
-    puts "Spam (Confidence: #{result[:score]})\n\n"
-  when "LABEL_0"
-    puts "Ham (Confidence: #{result[:score]})\n\n"
-  end
+  embed.(example) => { label: label, score: confidence }
+
+  result = { "LABEL_1" => "Spam", "LABEL_0" => "Ham" }[label]
+
+  puts "#{result} (Confidence: #{confidence})\n\n"
 end
-
 ```
 
 ### Output
