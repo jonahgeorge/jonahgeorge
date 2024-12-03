@@ -5,7 +5,7 @@
 As any good Ruby developer does, I regularly review new projects by [@ankane](https://github.com/ankane). 
 Most recently I came across [`transformers-ruby`](https://github.com/ankane/transformers-ruby) and have been wondering about how to leverage HuggingFace models.
 
-A use-case finally arose in wanting to flag potential spam messages from users in a Ruby on Rails application. I initial found the [DriftingRuby episode "Detect Spam with AI"](https://www.driftingruby.com/episodes/detect-spam-with-ai) but was disatisfied with the need to a Python microservice.
+A use-case finally arose in wanting to flag potential spam messages from users in a Ruby on Rails application. I initial found the [DriftingRuby episode "Detect Spam with AI"](https://www.driftingruby.com/episodes/detect-spam-with-ai) but was disatisfied with the need to use a Python microservice.
 
 This is my exploration in how to setup and use a permissively licensed spam detection model in Ruby.
 
@@ -49,7 +49,10 @@ device =
     "cpu"
   end
 
+# DriftyRuby uses `mshenoda/roberta-spam`; however, `transformers-rb` does not yet support RoBERTa models.
+# I found the following model which utilizes just BERT and is Apache 2.0 licensed.
 model_path = "mrm8488/bert-tiny-finetuned-enron-spam-detection"
+
 embed = Transformers.pipeline("text-classification", model: model_path, device: device)
 
 examples = [
