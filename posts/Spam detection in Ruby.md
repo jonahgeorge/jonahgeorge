@@ -1,6 +1,7 @@
 # Spam detection in Ruby
 
 ```rb
+# Gemfile
 source "https://rubygems.org"
 
 gem "torch-rb"
@@ -8,6 +9,7 @@ gem "transformers-rb"
 ```
 
 ```rb
+# spamcheck.rb
 require "transformers"
 
 embed = Transformers.pipeline(
