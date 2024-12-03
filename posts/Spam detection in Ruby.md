@@ -5,7 +5,7 @@
 As any good Ruby developer does, I regularly review new projects by [@ankane](https://github.com/ankane). 
 Most recently I came across [`transformers-ruby`](https://github.com/ankane/transformers-ruby) and have been wondering about how to leverage HuggingFace models.
 
-A use-case finally arose in wanting to flag potential spam messages from users in a Ruby on Rails application. I initial found the [DriftingRuby episode "Detect Spam with AI"](https://www.driftingruby.com/episodes/detect-spam-with-ai) but was disatisfied with the need to use a Python microservice.
+A use-case finally arose in wanting to flag potential spam messages from users in a Ruby on Rails application. I initial found the [DriftingRuby episode "Detect Spam with AI"](https://www.driftingruby.com/episodes/detect-spam-with-ai) but was dissatisfied with the need to use a Python microservice.
 
 This is my exploration in how to setup and use a permissively licensed spam detection model in Ruby.
 
@@ -101,5 +101,5 @@ Spam (Confidence: 0.9947096109390259)
 
 - On first run, `transformers-rb` will fetch the model from HuggingFace and then execute it. In a production environment it may be preferrable to move the model fetch into a build step.
 
-- [ankane/informers](https://github.com/ankane/informers) supports [ONNX](https://onnx.ai) models. It may be possible to export the original model used by DriftingRuby to ONNX and then use it.
+- [ankane/informers](https://github.com/ankane/informers) supports [ONNX](https://onnx.ai) models, it may be possible to export the original model used by DriftingRuby to ONNX and then use it. While I don't have any concrete evidence, a [RoBERTa](https://arxiv.org/abs/1907.11692) seems like it would be better than a [BERT](https://arxiv.org/abs/1810.04805) model.
   - https://huggingface.co/docs/transformers/en/serialization#export-to-onnx
