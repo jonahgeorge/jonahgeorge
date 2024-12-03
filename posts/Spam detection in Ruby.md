@@ -96,5 +96,5 @@ Spam (Confidence: 0.9947096109390259)
 
 - On first run, `transformers-rb` will fetch the model from HuggingFace and then execute it. In a production environment it may be preferrable to move the model fetch into a build step.
 
-- [ankane/informers](https://github.com/ankane/informers) supports [ONNX](https://onnx.ai) models, it may be possible to export the original model used by DriftingRuby to ONNX and then use it. While I don't have any concrete evidence, a [RoBERTa](https://arxiv.org/abs/1907.11692) seems like it would be better than a [BERT](https://arxiv.org/abs/1810.04805) model.
+- [ankane/informers](https://github.com/ankane/informers) supports [ONNX](https://onnx.ai) models, it may be possible to export the original model used by DriftingRuby to ONNX and then use it. While I don't have any concrete evidence, a [RoBERTa](https://arxiv.org/abs/1907.11692) model seems like it would be better than a [BERT](https://arxiv.org/abs/1810.04805) model just by name.
   - https://huggingface.co/docs/transformers/en/serialization#export-to-onnx
