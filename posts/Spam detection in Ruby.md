@@ -96,3 +96,7 @@ Ham (Confidence: 0.9982806444168091)
 BlueChew is the better way to get hard. Get your free sample today!
 Spam (Confidence: 0.9947096109390259)
 ```
+
+## Follow-ups
+
+- On first run, `transformers-rb` will fetch the model from HuggingFace and then execute it. In a production environment it may be preferrable to move the model fetch into a build step.
