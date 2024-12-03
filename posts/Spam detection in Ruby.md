@@ -35,6 +35,7 @@ bundle install
 
 ```rb
 # spamcheck.rb
+require "torch"
 require "transformers"
 
 device =
@@ -69,6 +70,7 @@ examples.each do |example|
     puts "Ham (Confidence: #{result[:score]})\n\n"
   end
 end
+
 ```
 
 ### Output
