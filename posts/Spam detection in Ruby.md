@@ -2,7 +2,7 @@
 
 ## Background
 
-As any good Ruby developer does, I regularly review new projects by [@ankane](github.com/ankane). 
+As any good Ruby developer does, I regularly review new projects by [@ankane](https://github.com/ankane). 
 Most recently I came across [ankane/transformers-ruby](https://github.com/ankane/transformers-ruby) and have been wondering about how to leverage HuggingFace models.
 
 A use-case finally arose in wanting to flag potential spam messages from users in a Ruby on Rails application. 
