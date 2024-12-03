@@ -1,5 +1,24 @@
 # Spam detection in Ruby
 
+## Background
+
+As any good Ruby developer does, I regularly review new projects by [@ankane](github.com/ankane). 
+Most recently I came across [ankane/transformers-ruby](https://github.com/ankane/transformers-ruby) and have been wondering about how to leverage HuggingFace models.
+
+A use-case finally arose in wanting to flag potential spam messages from users in a Ruby on Rails application. 
+This is my exploration in how to setup and use a permissively licensed spam detection model.
+
+## Setup
+
+Install pytorch and configure `torch-rb` to build using the local install:
+
+```sh
+brew install pytorch
+bundle config build.torch-rb --with-torch-dir=$(brew --prefix)/Cellar/pytorch/2.5.1_1
+```
+
+Configure a lightweight Gemfile and install dependencies:
+
 ```rb
 # Gemfile
 source "https://rubygems.org"
@@ -7,6 +26,12 @@ source "https://rubygems.org"
 gem "torch-rb"
 gem "transformers-rb"
 ```
+
+```sh
+bundle install
+```
+
+## Example script
 
 ```rb
 # spamcheck.rb
@@ -41,7 +66,8 @@ examples.each do |example|
 end
 ```
 
-Output:
+### Output
+
 ```
 $ bundle exec ruby spamcheck.rb
 Get a free iPhone now!
