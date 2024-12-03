@@ -64,13 +64,11 @@ examples = [
 ]
 
 examples.each do |example|
+  outputs = embed.(example)
+  result = { "LABEL_1" => "Spam", "LABEL_0" => "Ham" }[outputs[:label]]
+
   puts example
-
-  embed.(example) => { label: label, score: confidence }
-
-  result = { "LABEL_1" => "Spam", "LABEL_0" => "Ham" }[label]
-
-  puts "#{result} (Confidence: #{confidence})\n\n"
+  puts "#{result} (Confidence: #{outputs[:score]})\n\n"
 end
 ```
 
