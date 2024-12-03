@@ -5,7 +5,7 @@
 As any good Ruby developer does, I regularly review new projects by [@ankane](https://github.com/ankane). 
 Most recently I came across [`transformers-ruby`](https://github.com/ankane/transformers-ruby) and have been wondering about how to leverage HuggingFace models.
 
-A use-case finally arose in wanting to flag potential spam messages from users in a Ruby on Rails application. I initial found the [DriftingRuby episode "Detect Spam with AI"](https://www.driftingruby.com/episodes/detect-spam-with-ai) but was dissatisfied with the need to use a Python microservice.
+A use-case finally arose in wanting to flag potential spam messages from users in a Ruby on Rails application. I initially found the [DriftingRuby episode "Detect Spam with AI"](https://www.driftingruby.com/episodes/detect-spam-with-ai) but was dissatisfied with the need to use a Python microservice.
 
 This is my exploration in how to setup and use a permissively licensed spam detection model in Ruby.
 
