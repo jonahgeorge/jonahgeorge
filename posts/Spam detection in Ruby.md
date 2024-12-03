@@ -3,14 +3,14 @@
 ## Background
 
 As any good Ruby developer does, I regularly review new projects by [@ankane](https://github.com/ankane). 
-Most recently I came across [ankane/transformers-ruby](https://github.com/ankane/transformers-ruby) and have been wondering about how to leverage HuggingFace models.
+Most recently I came across [`transformers-ruby`](https://github.com/ankane/transformers-ruby) and have been wondering about how to leverage HuggingFace models.
 
 A use-case finally arose in wanting to flag potential spam messages from users in a Ruby on Rails application. 
 This is my exploration in how to setup and use a permissively licensed spam detection model.
 
 ## Setup
 
-Install pytorch and configure `torch-rb` to build using the local install:
+Install pytorch and configure [`torch-rb`](https://github.com/ankane/torch.rb) to build using the local install:
 
 ```sh
 brew install pytorch
