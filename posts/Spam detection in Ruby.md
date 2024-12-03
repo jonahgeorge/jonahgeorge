@@ -10,7 +10,7 @@ This is my exploration in how to setup and use a permissively licensed spam dete
 
 ## Setup
 
-Install pytorch and configure [`torch-rb`](https://github.com/ankane/torch.rb) to build using the local install:
+Install [`pytorch`](https://pytorch.org/) and configure [`torch-rb`](https://github.com/ankane/torch.rb) to build using the local install:
 
 ```sh
 brew install pytorch
