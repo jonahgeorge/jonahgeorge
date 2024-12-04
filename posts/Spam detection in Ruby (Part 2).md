@@ -111,7 +111,8 @@ end
 
 Moving model to cache dir to prevent HuggingFace Hub lookup:
 ```
-mv mshenoda_roberta_spam_onnx ~/.cache/informers/mshenoda
+mkdir -p ~/.cache/informers/mshenoda
+mv mshenoda_roberta_spam_onnx ~/.cache/informers/mshenoda/robert-spam
 ```
 
 
