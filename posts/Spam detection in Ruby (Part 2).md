@@ -81,7 +81,30 @@ gem "informers"
 ```
 
 ```rb
+# spamcheck.rb
+require "torch"
+require "informers"
 
+# https://huggingface.co/mshenoda/roberta-spam
+model = Informers.pipeline(
+  "text-classification",
+  "mshenoda/roberta-spam",
+  model_file_name: "../model",
+  quantized: false
+)
+
+sentences = [
+  "Get a free iPhone now!",
+  "Hey, can we get together to watch the game tomorrow?",
+  "You have won a lottery! To claim the prize, reply with your social security number.",
+  "I am attaching the report for your review. Please take a look and let me know if you have any questions.",
+  "BlueChew is the better way to get hard. Get your free sample today!",
+]
+
+sentences.each do |example|
+  outputs = model.(example)
+  puts outputs
+end
 ```
 
 
@@ -89,3 +112,15 @@ gem "informers"
 Moving model to cache dir to prevent HuggingFace Hub lookup:
 ```
 mv mshenoda_roberta_spam_onnx ~/.cache/informers/mshenoda
+```
+
+
+```
+bundle exec ruby spamcheck.rb
+/Users/jonahgeorge/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/informers-1.2.0/lib/informers/models.rb:64:in `from_pretrained': Unsupported model type: roberta (Informers::Error)
+	from /Users/jonahgeorge/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/informers-1.2.0/lib/informers/pipelines.rb:1445:in `block in load_items'
+	from /Users/jonahgeorge/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/informers-1.2.0/lib/informers/pipelines.rb:1431:in `each'
+	from /Users/jonahgeorge/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/informers-1.2.0/lib/informers/pipelines.rb:1431:in `load_items'
+	from /Users/jonahgeorge/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/informers-1.2.0/lib/informers/pipelines.rb:1408:in `pipeline'
+	from spamcheck.rb:6:in `<main>'
+```
